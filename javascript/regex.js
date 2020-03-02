@@ -1,19 +1,4 @@
-var result = document.querySelector('#result');
-var form = document.querySelector('form');
 
-form.addEventListener('submit', function(e) {
-  e.preventDefault();
-  checkPhoneNumber(this.phone.value);
-});
-
-function checkPhoneNumber(phoneNo) {
-  var phoneRE = /^\(\d\d\d\) \d\d\d-\d\d\d\d$/;
-  if (phoneNo.match(phoneRE)) {
-    result.innerHTML = 'The phone number is <strong>valid!</strong>';
-  } else {
-    result.innerHTML = 'The phone number is <strong>invalid!</strong>';
-  }
-}
 
 // Type JavaScript here and click "Run Code" or press Ctrl + s
 console.log('Hello, world!');
@@ -55,6 +40,7 @@ const map = (array, callback) => {
 };
 
  console.log(map([1, 2, 3], addTwo));
+ console.log([1,2,3].map(addTwo))
 
 
 // Challenge 4
@@ -87,14 +73,29 @@ console.log(mapWith([1, 2, 3], addTwo));
 
 // Challenge 6
 const reduce = (array, callback, initialValue) => {
-	
   let acc = initialValue
-  let count = 0
   
   for(let i = 0; i <array.length; i++){
-      acc += callback(count,array[i])
+      acc = callback(acc,array[i])
   }
   
   return acc
 
 };
+
+const numsRed = [4, 1, 3];
+const add = (a, b) => a + b; 
+console.log(reduce(numsRed, add, 3));
+console.log(numsRed.reduce(add,0))
+
+
+
+studentName = "Suzy"
+greeting();
+// Hello Suzy!
+
+function greeting() {
+    console.log(`Hello ${ studentName }!`);
+}
+
+var studentName;
